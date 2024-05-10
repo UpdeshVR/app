@@ -7,11 +7,14 @@
     
     <a-scene>
       <a-assets>
-              <img id="skybox" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/noon_grass.jpg?v=1715321843375">
+        <img id="skybox" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/noon_grass.jpg?v=1715321843375">
+        <img id="box" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/box.jpg?v=1715322146729">
+        <video id = "videoBox"></video>
       </a-assets>
       <a-sky color="#ECECEC" src="#skybox"></a-sky>
       <a-entity light="type: ambient; color: #BBB; intensity: 1.5"></a-entity>
-      <a-box position="-1 0.5 -3" color="#4CC3D9">
+      <a-box position="-1 0.5 -3" color="#fffff" src="#box">
+      <a-circle color="#CCC"  radius="1" position="1 .05 -4"></a-circle>
       </a-box>
     </a-scene>
   </body>
