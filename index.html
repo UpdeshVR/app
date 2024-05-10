@@ -9,9 +9,11 @@
       <a-assets>
         <img id="skybox" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/noon_grass.jpg?v=1715321843375">
         <img id="box"  src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/box.jpg?v=1715322146729">
-        <video id ="360video" autoplay loop>
-           <source src ="https://cdn.glitch.me/41990937-02b5-4784-9b53-083570e8e2a5/Y2meta.app-%E3%80%90360%C2%B0VR%E3%80%91Explore%20your%20own%20aquarium%20in%20360%20for%20VR!-(1080p).mp4?v=1715322802698" type="video/mp4">
+        <video id ="360video" autoplay loop="true" src ="https://cdn.glitch.me/41990937-02b5-4784-9b53-083570e8e2a5/Y2meta.app-%E3%80%90360%C2%B0VR%E3%80%91Explore%20your%20own%20aquarium%20in%20360%20for%20VR!-(1080p).mp4?v=1715322802698" type="video/mp4">
         </video>
+        <sound id= "audio">
+          <source src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sunny-jamboree-204820.mp3?v=1715328002480">
+        </sound>
       </a-assets>
 <!--   360 video on sky box     -->
       <a-sky color="#ECECEC" src="#360video"></a-sky>
@@ -20,6 +22,7 @@
 <!--       <a-box position="-1 0.5 -3"  material="color: red"> -->
 <!--       </a-box> --> 
       <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" position ="-1 0 -3" material="color: black"></a-entity>
+      <a-entity geometry="primitive: dodecahedron; radius: 2" position ="1 0 -3" scale=".5 .5 .5" material="color: green"></a-entity>
 
       <a-sphere color="yellow" position="1 2 -3"  radius=".7" material ="src: #box; shader:flat; reflectivity: 1; metalness: 1"></a-sphere>
 <!--  Custom Mat      -->
