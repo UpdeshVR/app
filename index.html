@@ -9,15 +9,17 @@
       <a-assets>
         <img id="skybox" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/noon_grass.jpg?v=1715321843375">
         <img id="box"  src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/box.jpg?v=1715322146729">
-        <video id ="360video" autoplay loop="true" volume >
+<!--         <video id ="360video" autoplay loop="true" >
           <source src ="https://cdn.glitch.me/41990937-02b5-4784-9b53-083570e8e2a5/Y2meta.app-%E3%80%90360%C2%B0VR%E3%80%91Explore%20your%20own%20aquarium%20in%20360%20for%20VR!-(1080p).mp4?v=1715322802698" type="video/mp4">
-        </video>
+        </video> -->
         <sound id= "audio">
           <source src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sunny-jamboree-204820.mp3?v=1715328002480">
         </sound>
       </a-assets>
 <!--   360 video on sky box     -->
-      <a-sky color="#ECECEC" src="#360video"></a-sky>
+      <a-sky color="#ECECEC" src="#skybox"></a-sky>
+<!--     <a-videosphere src="#360video" muted></a-videosphere>  -->
+      <a-sound src="src: url(https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sunny-jamboree-204820.mp3?v=1715328002480)" autoplay="true" position="0 2 5"></a-sound>
       <a-entity light="type: ambient; color: #BBB; intensity: 1.5"></a-entity>
 <!--       <a-circle color="#CCC"  radius="1" position="1 .05 -4"></a-circle>
 <!--       <a-box position="-1 0.5 -3"  material="color: red"> -->
