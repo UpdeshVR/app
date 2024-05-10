@@ -6,7 +6,11 @@
   <body>
     
     <a-scene>
-      <a-sky color="#ECECEC" src=""></a-sky>
+      <a-assets>
+              <img id="skybox" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/noon_grass.jpg?v=1715321843375">
+      </a-assets>
+      <a-sky color="#ECECEC" src="#skybox"></a-sky>
+      <a-entity light="type: ambient; color: #BBB; intensity: 1.5"></a-entity>
       <a-box position="-1 0.5 -3" color="#4CC3D9">
       </a-box>
     </a-scene>
