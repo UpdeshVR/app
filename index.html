@@ -16,9 +16,11 @@
 <!--   360 video on sky box     -->
       <a-sky color="#ECECEC" src="#360video"></a-sky>
       <a-entity light="type: ambient; color: #BBB; intensity: 1.5"></a-entity>
-      <a-circle color="#CCC"  radius="1" position="1 .05 -4"></a-circle>
-      <a-box position="-1 0.5 -3"  material="color: red">
-      </a-box>
+<!--       <a-circle color="#CCC"  radius="1" position="1 .05 -4"></a-circle>
+<!--       <a-box position="-1 0.5 -3"  material="color: red"> -->
+<!--       </a-box> --> 
+      <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" position ="-1 0 -3" material="color: black"></a-entity>
+
       <a-sphere color="yellow" position="1 2 -3"  radius=".7" material ="src: #box; shader:flat; reflectivity: 1; metalness: 1"></a-sphere>
 <!--  Custom Mat      -->
       <a-box position="-1 2 -3"  material="src: #box; color: red; roughness: 1; metalness: 0">
