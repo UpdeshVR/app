@@ -49,25 +49,35 @@
       <a-entity mixin="blue cube" position ="0 3 -3"></a-entity>
       <a-box position="-1 2 -3"  material="src: #box; color: red; roughness: 1; metalness: 0">
       </a-box> -->
-    
-     <a-plane color="green" height="200" width="200" rotation="-90 0 0" position ="0 0 0" material=" side:double"></a-plane>
-     <a-plane color="green" height="200" width="200" rotation="90 0 0" position ="0 25 0" material=" side:double"></a-plane>
-    
-     <a-plane color="blue" height="50" width="50" position ="0 20 -50" material=" side:double"></a-plane>
-     <a-plane color="white" height="50" width="20" position ="15 20 -5" material=" side:double"></a-plane>
-     <a-plane color="white" height="50" width="20" position ="-15 20 -5" material=" side:double"></a-plane>
-    
-    
-    
-    <a-plane color="red" height="50" width="90" position ="25 20 -50" rotation="0 -90 0" material=" side:double"></a-plane>
-    <a-plane color="red" height="50" width="40" position ="-5 20 -50" rotation="0 -90 0" material="color: red; side:double"></a-plane>
-    <a-plane color="red" height="50" width="40" position ="5 20 -50" rotation="0 -90 0" material="color: red; side:double"></a-plane>
-    
-    
-    
-    <a-plane color="blue" height="50" width="90" position ="-25 20 -50" rotation="0 90 0" material=" side:double"></a-plane>
-    
-    
+    <a-entity>
+<!--    Ground and top    -->
+        <a-plane color="green" height="200" width="200" rotation="-90 0 0" position ="0 0 0" material=" side:double"></a-plane>
+        <a-plane color="green" height="200" width="200" rotation="90 0 0" position ="0 25 0" material=" side:double"></a-plane>
+    <!--   Back Walls   -->
+        <a-plane color="white" height="50" width="20" position ="15 20 -50" material=" side:double"></a-plane>
+        <a-plane color="white" height="50" width="20" position ="-15 20 -50" material=" side:double"></a-plane>
+        <a-plane color="gray" height="50" width="100" position ="0 20 -90" material=" side:double"></a-plane>
+
+
+<!-- Front Walls -->
+        <a-plane color="white" height="50" width="20" position ="15 20 -5" material=" side:double"></a-plane>
+        <a-plane color="white" height="50" width="20" position ="-15 20 -5" material=" side:double"></a-plane>
+
+
+<!-- room walls -->
+        <a-plane color="blue" height="50" width="90" position ="25 20 -50" rotation="0 -90 0" material=" side:double"></a-plane>
+        <a-plane color="red" height="50" width="20" position ="-5 20 -40" rotation="0 -90 0" material="color: red; side:double"></a-plane>
+        <a-plane color="red" height="50" width="20" position ="5 20 -40" rotation="0 -90 0" material="color: red; side:double"></a-plane>
+
+        <a-plane color="red" height="50" width="10" position ="-5 20 -10" rotation="0 -90 0" material="color: red; side:double"></a-plane>
+        <a-plane color="red" height="50" width="10" position ="5 20 -10" rotation="0 -90 0" material="color: red; side:double"></a-plane>
+
+
+
+        <a-plane color="blue" height="50" width="90" position ="-25 20 -50" rotation="0 90 0" material=" side:double"></a-plane>
+
+    </a-entity>
+     
     
     </a-scene>
 
