@@ -3,8 +3,7 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-   <script src="https://kripken.github.io/ammo.js/builds/ammo.wasm.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
   </head>
   <body>
 <!--   <div id="nextbutton" style="z-index: 10; display: block;">
@@ -14,9 +13,14 @@
     <img id="btn" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265" width="30" height="30">
   </div>
     
-  <a-scene physics>
-    <a-entity camera="userHeight: 5"  position="0 2 0"  look-controls wasd-controls kinematic-body >
-    <a-box depth="2" height="6" width="0.5" static-body="shape: box;"></a-box>
+  <a-scene physics="debug: true">
+
+<!--     <a-entity camera="userHeight: 5"  position="0 2 0"  look-controls wasd-controls kinematic-body > -->
+<a-entity id="cameraEntity" camera="" universal-controls="" kinematic-body=""
+            mouse-controls="pointerlockEnabled: false" data-aframe-inspector-original-camera="" position="0 1.6 0"
+            grabbable look-controls wasd-controls>
+
+    <!--     <a-box depth="2" height="6" width="0.5" static-body="shape: box;"></a-box> -->
     </a-entity>
 <!--     <a-grid static-body position="0 0 0"></a-grid> -->
     <a-entity hello-world></a-entity>
@@ -48,7 +52,7 @@
 
       <a-sky color="#ECECEC" src="#skybox"></a-sky>
       <a-sound src="#backgroundAudio" autoplay="true" position="0 2 5"></a-sound>
-    <a-entity static-body geometry="primitive: box; width: 1; height: 1; depth: 1" position ="-1 0 -3" material="color: black"></a-entity>
+    <a-entity grabbable dynamic-body geometry="primitive: box; width: 1; height: 1; depth: 1" position ="-1 0 -3" material="color: black"></a-entity>
 <!-- 
       <a-entity light="type: ambient; color: #BBB; intensity: 1.5"></a-entity>
       <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" position ="-1 0 -3" material="color: black"></a-entity>
