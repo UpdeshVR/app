@@ -9,7 +9,7 @@
   <h2>Next Animation</h2>
   </div>
   <div id="mutebutton" style="z-index: 10; display: block;">
-    <img src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265" width="30" height="30"/>
+    <img id="button" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265" width="30" height="30" />
   </div>
     
   <a-scene>
@@ -44,14 +44,20 @@
         AFRAME.registerComponent('hello-world', {
         init: function () {
             console.log('Hello, World!');
-            const button = document.getElementById('nextbutton')
+            const button = document.getElementById('mutebutton')
             const audio1 = document.getElementById('audio')
+            const btn = document.getElementById('button')
+            const Vol = document.getelementById('volume')
+            const mute = document.getelementById('mute')
+            
             function clickButton(){
                 if(audio1.paused){
                     audio1.play()
+                    btn.setAttribute('src',Vol.style.src)
                 }
                 else{
                     audio1.pause();
+                  btn.setAttribute('src',mute.style.src)
                 }
             }
             button.addEventListener('click',clickButton)
