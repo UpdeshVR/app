@@ -13,7 +13,11 @@
   </div>
     
   <a-scene>
-    <a-entity camera look-controls position="0 1.6 0" wasd-controls kinematic-body></a-entity>
+    <a-entity camera look-controls  wasd-controls id="player" position="0 1.6 0" 
+                geometry="primitive: box; width: 0.5; height: 1.8; depth: 0.5"
+                material="color: #00ff00"
+                collision-filter="group: player"
+                kinematic-body></a-entity>
 
     <a-entity hello-world></a-entity>
       <a-assets>
@@ -57,30 +61,30 @@
       </a-box> -->
     <a-entity position="0 -5 0">
 <!--    Ground and top    -->
-        <a-plane height="200" width="200" rotation="-90 0 0" position ="0 0 0" material="src:#floor-texture; side:double; offset: 0,0;repeat: 10 8; roughness: 1; metalness: .5"></a-plane>
-        <a-plane height="200" width="200" rotation="90 0 0" position ="0 25 0" material="src:#topWalls-texture; side:double; offset: 0,0;repeat: 5 5; roughness: 1; metalness: .5"></a-plane>
+        <a-plane height="200" width="200" rotation="-90 0 0" depth="2"  position ="0 0 0" material="src:#floor-texture; side:double; offset: 0,0;repeat: 10 8; roughness: 1; metalness: .5"></a-plane>
+        <a-plane height="200" width="200" rotation="90 0 0" depth="2"  position ="0 25 0" material="src:#topWalls-texture; side:double; offset: 0,0;repeat: 5 5; roughness: 1; metalness: .5"></a-plane>
     <!--   Back Walls   -->
-        <a-plane color="white" height="50" width="20" position ="15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane color="white" height="50" width="20" position ="-15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane color="gray" height="50" width="100" position ="0 20 -90"  material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane color="white" height="50" width="20" depth="2"  position ="15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane color="white" height="50" width="20" depth="2"  position ="-15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane color="gray" height="50" width="100" depth="2"  position ="0 20 -90"  material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
 
 
 <!-- Front Walls -->
-        <a-plane color="white" height="50" width="20" position ="15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane color="white" height="50" width="20" position ="-15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane color="white" height="50" width="20" depth="2"  position ="15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane color="white" height="50" width="20" depth="2"  position ="-15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
 
 <!-- room walls -->
-        <a-plane  height="50" width="90" position ="25 20 -50" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
-        <a-plane  height="50" width="20" position ="-5 20 -40" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane  height="50" width="20" position ="5 20 -40" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane  height="50" width="90" position ="25 20 -50"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane  height="50" width="20" position ="-5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane  height="50" width="20" position ="5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
-        <a-plane  height="50" width="10" position ="-5 20 -10" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane  height="50" width="10" position ="5 20 -10" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane  height="50" width="10" position ="-5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane  height="50" width="10" position ="5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
 
 
-        <a-plane  height="50" width="90" position ="-25 20 -50" rotation="0 90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane  height="50" width="90" position ="-25 20 -50" depth="2"  rotation="0 90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
 
     </a-entity>
      
