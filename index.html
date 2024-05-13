@@ -9,7 +9,7 @@
   <h2>Next Animation</h2>
   </div>
   <div id="mutebutton" style="z-index: 10; display: block;">
-    <img id="button" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265" width="30" height="30" />
+    <img id="btn" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265" width="30" height="30">
   </div>
     
   <a-scene>
@@ -20,8 +20,7 @@
         <!-- <video id ="360video" autoplay loop="true" >
           <source src ="./assets/videos.mp4" type="video/mp4">
         </video> -->
-        <img id="volume" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265"/>
-        <img id="mute" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume.png?v=1715577435127"/>
+        
         <audio id="audio" loop>
             <source src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sunny-jamboree-204820.mp3?v=1715328002480" type="audio/mpeg">
         </audio>
@@ -46,18 +45,15 @@
             console.log('Hello, World!');
             const button = document.getElementById('mutebutton')
             const audio1 = document.getElementById('audio')
-            const btn = document.getElementById('button')
-            const Vol = document.getelementById('volume')
-            const mute = document.getelementById('mute')
-            
             function clickButton(){
                 if(audio1.paused){
                     audio1.play()
-                    btn.setAttribute('src',Vol.style.src)
+                  button.src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume.png?v=1715577435127"
                 }
                 else{
                     audio1.pause();
-                  btn.setAttribute('src',mute.style.src)
+                  button.src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265"
+                  
                 }
             }
             button.addEventListener('click',clickButton)
