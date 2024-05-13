@@ -16,14 +16,18 @@
     <a-entity hello-world></a-entity>
       <a-assets>
         <img id="skybox" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/noon_grass.jpg?v=1715321843375">
-        <img id="box"  src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/box.jpg?v=1715322146729">
+<!--         <img id="box"  src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/box.jpg?v=1715322146729"> -->
         <!-- <video id ="360video" autoplay loop="true" >
           <source src ="./assets/videos.mp4" type="video/mp4">
         </video> -->
         
-        <a-asset-item id="obj3d" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.obj?v=1715581489710"></a-asset-item>
+<!--         <a-mixin id="blue" material="color: blue"></a-mixin>
+        <a-mixin id="cube" geometry="primitive: box"></a-mixin>
+        <a-mixin id="cone" geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.1"></a-mixin>
         
-        <a-asset-item id= "texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.mtl?v=1715581491776"></a-asset-item>
+        <a-asset-item id="obj3d" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.obj?v=1715581489710"></a-asset-item>
+         -->
+<!--         <a-asset-item id= "texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.mtl?v=1715581491776"></a-asset-item> -->
         
         <source id="vol" src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume.png?v=1715577435127">
         <source id="mute" src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265">
@@ -35,16 +39,20 @@
 
       <a-sky color="#ECECEC" src="#skybox"></a-sky>
       <a-sound src="#backgroundAudio" autoplay="true" position="0 2 5"></a-sound>
-
+<!-- 
       <a-entity light="type: ambient; color: #BBB; intensity: 1.5"></a-entity>
       <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" position ="-1 0 -3" material="color: black"></a-entity>
       <a-entity geometry="primitive: dodecahedron; radius: 2" position ="1 0 -3" scale=".5 .5 .5" material="color: green"></a-entity>
-      
-       <a-entity obj-model="obj: #obj3d; mtl: #texture" position ="0 0 -3" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
+       -->
+<!--        <a-entity obj-model="obj: #obj3d; mtl: #texture" position ="0 0 -3" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
       <a-sphere color="yellow" position="1 2 -3"  radius=".7" material ="src: #box; shader:flat; reflectivity: 1; metalness: 1"></a-sphere>
-
+      <a-entity mixin="blue cube" position ="0 3 -3"></a-entity>
       <a-box position="-1 2 -3"  material="src: #box; color: red; roughness: 1; metalness: 0">
-      </a-box>
+      </a-box> -->
+    
+     <a-plane color="green" height="200" width="200" rotation="-90 0 0" position ="0 0 0"></a-plane>
+    
+    
     </a-scene>
 
     <script>
