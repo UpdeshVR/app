@@ -20,7 +20,6 @@
         <!-- <video id ="360video" autoplay loop="true" >
           <source src ="./assets/videos.mp4" type="video/mp4">
         </video> -->
-        
 <!--         <a-mixin id="blue" material="color: blue"></a-mixin>
         <a-mixin id="cube" geometry="primitive: box"></a-mixin>
         <a-mixin id="cone" geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.1"></a-mixin>
@@ -29,6 +28,7 @@
          -->
 <!--         <a-asset-item id= "texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.mtl?v=1715581491776"></a-asset-item> -->
         
+        <img id="floor-texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/floor_tiles.jpg?v=1715584693228">
         <source id="vol" src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume.png?v=1715577435127">
         <source id="mute" src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265">
         
@@ -49,9 +49,9 @@
       <a-entity mixin="blue cube" position ="0 3 -3"></a-entity>
       <a-box position="-1 2 -3"  material="src: #box; color: red; roughness: 1; metalness: 0">
       </a-box> -->
-    <a-entity>
+    <a-entity position="0 -5 0">
 <!--    Ground and top    -->
-        <a-plane color="green" height="200" width="200" rotation="-90 0 0" position ="0 0 0" material=" side:double"></a-plane>
+        <a-plane height="200" width="200" rotation="-90 0 0" position ="0 0 0" material="src:#floor-texture; side:double; offset: 0,0;repeat: 90 50; roughness: 1; metalness: 0"></a-plane>
         <a-plane color="green" height="200" width="200" rotation="90 0 0" position ="0 25 0" material=" side:double"></a-plane>
     <!--   Back Walls   -->
         <a-plane color="white" height="50" width="20" position ="15 20 -50" material=" side:double"></a-plane>
