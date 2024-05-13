@@ -5,9 +5,9 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   </head>
   <body>
-  <div id="nextbutton" style="z-index: 10; display: block;">
+<!--   <div id="nextbutton" style="z-index: 10; display: block;">
   <h2>Next Animation</h2>
-  </div>
+  </div> -->
   <div id="mutebutton" style="z-index: 10; display: block;">
     <img id="btn" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265" width="30" height="30">
   </div>
@@ -20,6 +20,8 @@
         <!-- <video id ="360video" autoplay loop="true" >
           <source src ="./assets/videos.mp4" type="video/mp4">
         </video> -->
+        <source id="vol" src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume.png?v=1715577435127">
+        <source id="mute" src ="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265">
         
         <audio id="audio" loop>
             <source src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sunny-jamboree-204820.mp3?v=1715328002480" type="audio/mpeg">
@@ -44,16 +46,22 @@
         init: function () {
             console.log('Hello, World!');
             const button = document.getElementById('mutebutton')
+            const btn = document.getElementById('btn')
+            const vol = document.getElementById('vol')
+            const mute = document.getElementById('mute')
+            
+            
             const audio1 = document.getElementById('audio')
             function clickButton(){
                 if(audio1.paused){
                     audio1.play()
-                  button.src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume.png?v=1715577435127"
+                  // btn.src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume.png?v=1715577435127"
+                  btn.src = vol.src;
                 }
                 else{
                     audio1.pause();
-                  button.src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265"
-                  
+                  // btn.src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265"
+                  btn.src = mute.src;
                 }
             }
             button.addEventListener('click',clickButton)
