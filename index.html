@@ -13,7 +13,7 @@
     <img id="btn" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/volume-slash.png?v=1715577427265" width="30" height="30">
   </div>
     
-  <a-scene>
+  <a-scene real-world-meshing>
     <a-entity camera look-controls position="0 1.6 0" wasd-controls ></a-entity>
 
     <a-entity hello-world></a-entity>
@@ -73,25 +73,25 @@
     <!--   Back Walls   -->
         <a-plane static-body="shape: plane;" color="white" height="50" width="20" depth="2"  position ="15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
         <a-plane static-body="shape: plane;" color="white" height="50" width="20" depth="2"  position ="-15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane color="gray" height="50" width="100" depth="2"  position ="0 20 -90"  material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane static-body="shape: plane;" color="gray" height="50" width="100" depth="2"  position ="0 20 -90"  material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
 
 
 <!-- Front Walls -->
-        <a-plane color="white" height="50" width="20" depth="2"  position ="15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane color="white" height="50" width="20" depth="2"  position ="-15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body="shape: plane;" color="white" height="50" width="20" depth="2"  position ="15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body="shape: plane;" color="white" height="50" width="20" depth="2"  position ="-15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
 
 <!-- room walls -->
-        <a-plane  height="50" width="90" position ="25 20 -50"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
-        <a-plane  height="50" width="20" position ="-5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane  height="50" width="20" position ="5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body="shape: plane;" height="50" width="90" position ="25 20 -50"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane static-body="shape: plane;" height="50" width="20" position ="-5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body="shape: plane;" height="50" width="20" position ="5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
-        <a-plane  height="50" width="10" position ="-5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane  height="50" width="10" position ="5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body="shape: plane;" height="50" width="10" position ="-5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body="shape: plane;" height="50" width="10" position ="5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
 
 
-        <a-plane  height="50" width="90" position ="-25 20 -50" depth="2"  rotation="0 90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane static-body="shape: plane;" height="50" width="90" position ="-25 20 -50" depth="2"  rotation="0 90 0" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
 
     </a-entity>
      
