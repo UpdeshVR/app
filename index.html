@@ -47,7 +47,10 @@
         <a-asset-item id="obj3d" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.obj?v=1715581489710"></a-asset-item>
          -->
 <!--         <a-asset-item id= "texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.mtl?v=1715581491776"></a-asset-item> -->
-        <img id="floor-texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/TilesTerrazzoVenetianPolished001_AO_2K.jpg?v=1715852261184">
+        <img id="floor-texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/TilesTerrazzoVenetianPolished001_COL_VAR1_2K.jpg?v=1715858321099">
+        <img id="floor-normal" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/TilesTerrazzoVenetianPolished001_NRM_2K.png?v=1715857918147">
+        <img id="floor-AO" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/TilesTerrazzoVenetianPolished001_AO_2K.jpg?v=1715858052758">
+        
         <img id="walls-texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/StuccoRoughCast001_COL_2K_METALNESS.png?v=1715852370448">
         <img id="walls-AO" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/StuccoRoughCast001_AO_2K_METALNESS.png?v=1715855360606">
         
@@ -83,7 +86,7 @@
       </a-box> -->
     <a-entity position="0 -5 0">
 <!--    Ground and top    -->
-        <a-plane static-body height="200" width="200" rotation="-90 0 0" depth="2"  position ="0 0 0" material="src:#floor-texture; side:double; offset: 0,0;repeat: 10 8; roughness: 1; metalness: .5"></a-plane>
+        <a-plane static-body height="200" width="200" rotation="-90 0 0" depth="2"  position ="0 0 0" material="src:#floor-texture; ambientOcclusionMap: #floor-AO; normalMap:#floor-normal; normalScale: 2 2; side:double; offset: 0,0;repeat: 10 8; roughness: 1; metalness: .5"></a-plane>
         <a-plane static-body height="100" width="100" rotation="90 0 0" depth="2"  position ="0 25 -50" material="src:#topWalls-texture; side:double; offset: 0,0;repeat: 5 5; roughness: 1; metalness: .5"></a-plane>
     <!--   Back Walls   -->
         <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -50" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 1 2;"></a-plane>
