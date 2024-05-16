@@ -49,6 +49,8 @@
 <!--         <a-asset-item id= "texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/sofa.mtl?v=1715581491776"></a-asset-item> -->
         <img id="floor-texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/TilesTerrazzoVenetianPolished001_AO_2K.jpg?v=1715852261184">
         <img id="walls-texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/StuccoRoughCast001_COL_2K_METALNESS.png?v=1715852370448">
+        <img id="walls-normal" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/StuccoRoughCast001_NRM_2K_METALNESS.png?v=1715854243908">
+        
         <img id="topWalls-texture" src="https://cdn.glitch.global/41990937-02b5-4784-9b53-083570e8e2a5/long_white_tiles_diff_4k.jpg?v=1715586605026">
         
         
@@ -82,14 +84,14 @@
         <a-plane static-body height="200" width="200" rotation="-90 0 0" depth="2"  position ="0 0 0" material="src:#floor-texture; side:double; offset: 0,0;repeat: 10 8; roughness: 1; metalness: .5"></a-plane>
         <a-plane static-body height="100" width="100" rotation="90 0 0" depth="2"  position ="0 25 -50" material="src:#topWalls-texture; side:double; offset: 0,0;repeat: 5 5; roughness: 1; metalness: .5"></a-plane>
     <!--   Back Walls   -->
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -50" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane static-body color="gray" height="50" width="100" depth="2"  position ="0 20 -90"  material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -50" material="src:#walls-texture; normalMap: #walls-normal; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -50" material="src:#walls-texture; normalMap: #walls-normal; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body color="gray" height="50" width="100" depth="2"  position ="0 20 -90"  material="src:#walls-texture; normalMap: #walls-normal; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
 
 
 <!-- Front Walls -->
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -5" material="src:#walls-texture; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -5" material="src:#walls-texture; normalMap: #walls-normal; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -5" material="src:#walls-texture; normalMap: #walls-normal; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
 
 <!-- room walls -->
