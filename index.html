@@ -86,24 +86,24 @@
         <a-plane static-body height="200" width="200" rotation="-90 0 0" depth="2"  position ="0 0 0" material="src:#floor-texture; side:double; offset: 0,0;repeat: 10 8; roughness: 1; metalness: .5"></a-plane>
         <a-plane static-body height="100" width="100" rotation="90 0 0" depth="2"  position ="0 25 -50" material="src:#topWalls-texture; side:double; offset: 0,0;repeat: 5 5; roughness: 1; metalness: .5"></a-plane>
     <!--   Back Walls   -->
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -50" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -50" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 1 2;"></a-plane>
       
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -50" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane static-body color="gray" height="50" width="100" depth="2"  position ="0 20 -90"  material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -50" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 1 2;"></a-plane>
+        <a-plane static-body color="gray" height="50" width="100" depth="2"  position ="0 20 -90"  material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 3 2;"></a-plane>
 
 
 <!-- Front Walls -->
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -5" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -5" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="15 20 -5" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 1 2;"></a-plane>
+        <a-plane static-body color="white" height="50" width="20" depth="2"  position ="-15 20 -5" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 1 2;"></a-plane>
 
 
 <!-- room walls -->
-        <a-plane static-body height="50" width="90" position ="25 20 -50"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 3 2;"></a-plane>
-        <a-plane static-body height="50" width="20" position ="-5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane static-body height="50" width="20" position ="5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body height="50" width="90" position ="25 20 -50"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 3 2;"></a-plane>
+        <a-plane static-body height="50" width="20" position ="-5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; normalScale: 2 2; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body height="50" width="20" position ="5 20 -40"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0; normalScale: 2 2; repeat: 1 2;"></a-plane>
 
-        <a-plane static-body height="50" width="10" position ="-5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
-        <a-plane static-body height="50" width="10" position ="5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
+        <a-plane static-body height="50" width="10" position ="-5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; normalScale: 2 2; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness:  0;repeat: 1 2;"></a-plane>
+        <a-plane static-body height="50" width="10" position ="5 20 -10"  depth="2" rotation="0 -90 0" material="src:#walls-texture; normalMap: #walls-normal; normalScale: 2 2; ambientOcclusionMap:#walls-AO; side:double; roughness: 1; metalness: 0;repeat: 1 2;"></a-plane>
 
           <a-entity gltf-model="#Harry-obj" scale="5 5 5" position="1 5 -80"></a-entity>
           <a-entity gltf-model="#dragon-obj" scale=".1 .1 .1" position="1 1 -70" animation-mixer="clip: Take 001; loop: repeat"></a-entity>
