@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AR with A-Frame</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.min.js"></script>
+</head>
+<body>
+  <a-scene webxr="mode: ar;">
+    <a-box position="0 0.5 -2" color="red"></a-box>
+    <a-sphere position="1 0.75 -3" radius="0.5" color="green"></a-sphere>
+    <a-cylinder position="-1 0.75 -3" radius="0.5" height="1.5" color="blue"></a-cylinder>
+  </a-scene>
+</body>
+</html>
