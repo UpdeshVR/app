@@ -382,6 +382,26 @@ const nextButtonComponent = () => ({
       }
       // nextButton.onclick = nextAnimation  // Switch to the next animation when the button is pressed.
     },
+    tick(){
+      const model = document.getElementById('model')
+      const ledmodel = document.getElementById('led-model')
+      const bendmodel = document.getElementById('bend-model')
+      const icemodel = document.getElementById('ice-model')
+      const fanmodel = document.getElementById('fan-model')
+      const modesmodel = document.getElementById('modes-model')
+      const toughglassmodel = document.getElementById('toughglass-model')
+      const shinemodel = document.getElementById('shine-model')
+
+      const uimodel = document.getElementById('2xui_1_model')
+      const bendui = document.getElementById('bendui_1_model')
+      const dualfanui = document.getElementById('dualfanui_model')
+      const iceui = document.getElementById('iceui_model')
+      const ledui = document.getElementById('ledui_1_model')
+      const modeui = document.getElementById('modeui_model')
+      const shineui = document.getElementById('shineui_model')
+      const toughglassui = document.getElementById('toughglassui_model')
+      model.setAttribute('visible', true);
+    },
   })
   
   export {nextButtonComponent}
