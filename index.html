@@ -8,6 +8,7 @@
     <script
 			src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.min.js"></script>
+      <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
     <!-- Include your JS files -->
   <script type="module">
@@ -116,7 +117,7 @@
     </div>
   </div>
 
-  <a-scene webxr="mode: ar;" next-button  reflacrtion-component no-cull >
+  <a-scene embedded arjs next-button  reflacrtion-component no-cull >
     <!-- assets -->
     <a-assets>
       <!-- 3d models -->
@@ -154,15 +155,16 @@
       </audio>
     </a-assets>
 <!-- camera -->
-    <a-camera
+    <!-- <a-camera
     id="camera"
     position="0 8 0"
     raycaster="objects: .cantap"
     cursor="fuse: false; rayOrigin: mouse; ">
     
 
-  </a-camera>
-  <a-sky id="skybox" radius="100"></a-sky>
+  </a-camera> -->
+  <a-marker-camera preset='hiro'></a-marker-camera>
+  <!-- <a-sky id="skybox" radius="100"></a-sky> -->
 <!-- light -->
 <a-entity
 id="model"
@@ -215,8 +217,8 @@ shadow>
 <a-sound src="#audio" position="0 2 5"></a-sound>
 
   </a-scene>
-  <video id="video1" autoplay style="display: block;"></video>
-  <script>
+  <!-- <video id="video1" autoplay style="display: block;"></video> -->
+  <!-- <script>
     // Access the user's webcam
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
       const video = document.getElementById('video1');
@@ -230,7 +232,7 @@ shadow>
     }).catch(function(err) {
       console.error('Error accessing webcam: ' + err);
     });
-  </script>
+  </script> -->
     
   </body>
 </html>
