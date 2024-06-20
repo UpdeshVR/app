@@ -22,6 +22,7 @@
     AFRAME.registerComponent('no-cull', {
       init() {
         this.el.addEventListener('model-loaded', () => {
+          this.el.setAttribute('visible', true);
           this.el.object3D.traverse((obj) => {
             obj.frustumCulled = false;
           });
