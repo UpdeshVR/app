@@ -215,22 +215,22 @@ shadow>
 <a-sound src="#audio" position="0 2 5"></a-sound>
 
   </a-scene>
-  <video id="video" autoplay style="display: none;"></video>
-  <!-- <script>
+  <video id="video1" autoplay style="display: block;"></video>
+  <script>
     // Access the user's webcam
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-      const video = document.getElementById('video');
+      const video = document.getElementById('video1');
       video.srcObject = stream;
       video.play();
 // chnage to sky box
-      video.addEventListener('loadeddata', () => {
-          const skybox = document.querySelector('#skybox');
-          skybox.setAttribute('material', 'shader: flat; src: #video');
-        });
+      // video.addEventListener('loadeddata', () => {
+      //     const skybox = document.querySelector('#skybox');
+      //     skybox.setAttribute('material', 'shader: flat; src: #video');
+      //   });
     }).catch(function(err) {
       console.error('Error accessing webcam: ' + err);
     });
-  </script> -->
+  </script>
     
   </body>
 </html>
