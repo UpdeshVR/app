@@ -117,7 +117,7 @@
     </div>
   </div>
 
-  <a-scene embedded arjs next-button  reflacrtion-component no-cull >
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" next-button  reflacrtion-component no-cull >
     <!-- assets -->
     <a-assets>
       <!-- 3d models -->
@@ -174,7 +174,7 @@ rotation="0 0 0"
 position ="0 0 -15"
 visible="true"
 reflections="type: static"
-no-cull>
+no-cull ar-hit-test>
 <a-entity id="led-model" gltf-model="#led-glb"></a-entity>
 <a-entity id="bend-model" gltf-model="#bend-glb"></a-entity>
 <a-entity id="ice-model" gltf-model="#ice-glb"></a-entity>
