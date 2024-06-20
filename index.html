@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.8thwall.com/web/aframe/aframe-extras-7.2.0.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>   -->
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
@@ -187,6 +187,8 @@ light="
   target: #model"
 position="1 4.3 -15"
 shadow>
+<a-light type="ambient" intensity="1"></a-light>
+
 </a-entity>
 <a-entity
 id="model"
@@ -215,7 +217,6 @@ no-cull>
 <a-entity id="shineui_model" gltf-model="#shineui"></a-entity>
 <a-entity id="toughglassui_model" gltf-model="#toughglassui"></a-entity>
 </a-entity>
-<a-light type="ambient" intensity="0.4"></a-light>
 <!-- glb models -->
 
 
