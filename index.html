@@ -164,7 +164,29 @@
     position="0 8 0"
     raycaster="objects: .cantap"
     cursor="fuse: false; rayOrigin: mouse; ">
-    <a-entity
+    
+  </a-camera>
+  <!-- <a-entity camera ></a-entity> -->
+  <!-- <a-sky id="skybox" radius="100"></a-sky> -->
+<!-- light -->
+
+
+<a-entity
+light="
+  type: directional;
+  intensity: 0.8;
+  castShadow: true;
+  shadowMapHeight:2048;
+  shadowMapWidth:2048;
+  shadowCameraTop: 20;
+  shadowCameraBottom: -20;
+  shadowCameraRight: 20;
+  shadowCameraLeft: -20;
+  target: #model"
+position="1 4.3 -15"
+shadow>
+</a-entity>
+<a-entity
 id="model"
 gltf-model="#ref-glb"
 scale="4 4 4"
@@ -191,28 +213,6 @@ no-cull>
 <a-entity id="shineui_model" gltf-model="#shineui"></a-entity>
 <a-entity id="toughglassui_model" gltf-model="#toughglassui"></a-entity>
 </a-entity>
-  </a-camera>
-  <!-- <a-entity camera ></a-entity> -->
-  <!-- <a-sky id="skybox" radius="100"></a-sky> -->
-<!-- light -->
-
-
-<a-entity
-light="
-  type: directional;
-  intensity: 0.8;
-  castShadow: true;
-  shadowMapHeight:2048;
-  shadowMapWidth:2048;
-  shadowCameraTop: 20;
-  shadowCameraBottom: -20;
-  shadowCameraRight: 20;
-  shadowCameraLeft: -20;
-  target: #model"
-position="1 4.3 -15"
-shadow>
-</a-entity>
-
 <a-light type="ambient" intensity="0.4"></a-light>
 <!-- glb models -->
 
