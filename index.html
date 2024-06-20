@@ -163,10 +163,8 @@
     
 
   </a-camera> -->
-  <a-entity camera ></a-entity>
-  <!-- <a-sky id="skybox" radius="100"></a-sky> -->
-<!-- light -->
-<a-entity
+  <a-entity camera >
+    <a-entity
 id="model"
 gltf-model="#ref-glb"
 scale="4 4 4"
@@ -193,6 +191,10 @@ no-cull ar-hit-test>
 <a-entity id="shineui_model" gltf-model="#shineui"></a-entity>
 <a-entity id="toughglassui_model" gltf-model="#toughglassui"></a-entity>
 </a-entity>
+  </a-entity>
+  <!-- <a-sky id="skybox" radius="100"></a-sky> -->
+<!-- light -->
+
 
 <a-entity
 light="
