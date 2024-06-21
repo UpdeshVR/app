@@ -49,9 +49,6 @@ const nextButtonComponent = () => ({
       viewbtn.addEventListener('click', () => {
         startScreen.style.display = 'none'
         arScreen.style.display = 'block'
-      })
-      let currentIndex = 0
-      place.addEventListener('click', () => {
         if (hasPlacedModel !== true) {
           hasPlacedModel = true
           instructioninfo.style.display = 'flex'
@@ -88,6 +85,10 @@ const nextButtonComponent = () => ({
           console.log('Play Animation 0')
           // scene.emit('recenter')
         }
+      })
+      let currentIndex = 0
+      place.addEventListener('click', () => {
+        
       })
       console.log('track.offsetWidth', track.offsetWidth)
   
