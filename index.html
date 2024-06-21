@@ -33,7 +33,67 @@
       
     });
 
-    
+    AFRAME.registerComponent("gesture-handler", {
+  schema: {
+    enabled: { default: true },
+    rotationFactor: { default: 5 },
+    minScale: { default: 0.3 },
+    maxScale: { default: 8 },
+  },
+
+  init: function () {
+  },
+
+  update: function () {
+  },
+
+  remove: function () {
+    this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
+    this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
+  },
+
+  handleRotation: function (event) {
+  },
+
+  handleScale: function (event) {
+    if (this.isVisible) {
+      this.scaleFactor *=
+        1 + event.detail.spreadChange / event.detail.startSpread;
+
+      this.scaleFactor = Math.min(
+        Math.max(this.scaleFactor, this.data.minScale),
+        this.data.maxScale
+      );
+
+      this.el.object3D.scale.x = this.scaleFactor * this.initialScale.x;
+      this.el.object3D.scale.y = this.scaleFactor * this.initialScale.y;
+      this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z;
+    }
+  },
+});
+
+// Component that detects and emits events for touch gestures
+
+AFRAME.registerComponent("gesture-detector", {
+  schema: {
+    element: { default: "" }
+  },
+
+  init: function() {
+  },
+
+  remove: function() {
+  },
+
+  emitGestureEvent(event) {
+  },
+
+  getTouchState: function(event) {
+  },
+
+  getEventPrefix(touchCount) {
+  }
+});
   </script>
   </head>
   <body style='margin : 0px; overflow: hidden;'>
@@ -122,7 +182,7 @@
 
   <!-- <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" next-button  reflacrtion-component no-cull > -->
     <a-scene  vr-mode-ui="enabled: false"
-    arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;" next-button  reflacrtion-component>
+    arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"  gesture-detector next-button  reflacrtion-component>
 
     <!-- assets -->
     <a-assets>
@@ -201,6 +261,7 @@ rotation="0 0 0"
 position ="0 0 -15"
 visible="true"
 reflections="type: static"
+gesture-handler
 no-cull>
 <a-entity id="led-model" gltf-model="#led-glb"></a-entity>
 <a-entity id="bend-model" gltf-model="#bend-glb"></a-entity>
