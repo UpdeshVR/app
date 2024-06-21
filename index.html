@@ -73,6 +73,7 @@
         },
         
         onTouchStart: function (event) {
+          console.log("touched")
           if (event.touches.length === 1) {
             this.startRotation.set(event.touches[0].pageX, event.touches[0].pageY, 0);
             this.initRotation.copy(this.model.rotation);
