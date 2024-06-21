@@ -224,8 +224,6 @@ AFRAME.registerComponent("gesture-detector", {
     <a-camera
     wasd-controls-enabled="false"
     look-controls
-    touchEnabled="false"
-    mouseEnabled ='false'
     id="camera"
     position="0 8 0"
     raycaster="objects: .cantap"
@@ -262,6 +260,7 @@ rotation="0 0 0"
 position ="0 0 -15"
 visible="true"
 reflections="type: static"
+look-controls
 gesture-handler
 no-cull>
 <a-entity id="led-model" gltf-model="#led-glb"></a-entity>
