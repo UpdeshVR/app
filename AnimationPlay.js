@@ -43,7 +43,7 @@ const nextButtonComponent = () => ({
       const track = document.querySelector('.carousel-track')
       const slides = Array.from(track.children)
       function handleArScreenClick() {
-        scene.emit('recenter')
+        // scene.emit('recenter')
         console.log('cursor clicked')
       }
       viewbtn.addEventListener('click', () => {
