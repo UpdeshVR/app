@@ -33,67 +33,95 @@
       
     });
 
-    AFRAME.registerComponent("gesture-handler", {
-  schema: {
-    enabled: { default: true },
-    rotationFactor: { default: 5 },
-    minScale: { default: 0.3 },
-    maxScale: { default: 8 },
-  },
+    AFRAME.registerComponent('gesture-controls', {
+        schema: {
+          enabled: { default: true }
+        },
+        
+        init: function () {
+          this.modelEntity = document.querySelector('#model');
+          this.model = this.modelEntity.object3D;
 
-  init: function () {
-  },
+          this.startDistance = 0;
+          this.startScale = new THREE.Vector3();
+          this.initScale = new THREE.Vector3();
+          this.startRotation = new THREE.Vector3();
+          this.initRotation = new THREE.Vector3();
 
-  update: function () {
-  },
+          this.bindMethods();
+          this.addEventListeners();
+        },
+        
+        bindMethods: function () {
+          this.onTouchStart = this.onTouchStart.bind(this);
+          this.onTouchMove = this.onTouchMove.bind(this);
+          this.onTouchEnd = this.onTouchEnd.bind(this);
+        },
+        
+        addEventListeners: function () {
+          const sceneEl = this.el.sceneEl;
+          sceneEl.addEventListener('touchstart', this.onTouchStart);
+          sceneEl.addEventListener('touchmove', this.onTouchMove);
+          sceneEl.addEventListener('touchend', this.onTouchEnd);
+        },
+        
+        removeEventListeners: function () {
+          const sceneEl = this.el.sceneEl;
+          sceneEl.removeEventListener('touchstart', this.onTouchStart);
+          sceneEl.removeEventListener('touchmove', this.onTouchMove);
+          sceneEl.removeEventListener('touchend', this.onTouchEnd);
+        },
+        
+        onTouchStart: function (event) {
+          if (event.touches.length === 1) {
+            this.startRotation.set(event.touches[0].pageX, event.touches[0].pageY, 0);
+            this.initRotation.copy(this.model.rotation);
+          }
+          
+          if (event.touches.length === 2) {
+            this.startDistance = this.getDistance(event.touches[0], event.touches[1]);
+            this.startScale.copy(this.model.scale);
+          }
+        },
+        
+        onTouchMove: function (event) {
+          if (event.touches.length === 1) {
+            const deltaX = event.touches[0].pageX - this.startRotation.x;
+            const deltaY = event.touches[0].pageY - this.startRotation.y;
+            
+            this.model.rotation.y = this.initRotation.y + deltaX * 0.01;
+            this.model.rotation.x = this.initRotation.x + deltaY * 0.01;
+          }
+          
+          if (event.touches.length === 2) {
+            const currentDistance = this.getDistance(event.touches[0], event.touches[1]);
+            const scaleFactor = currentDistance / this.startDistance;
+            this.model.scale.set(
+              this.startScale.x * scaleFactor,
+              this.startScale.y * scaleFactor,
+              this.startScale.z * scaleFactor
+            );
+          }
+        },
+        
+        onTouchEnd: function (event) {
+          if (event.touches.length === 0) {
+            this.startDistance = 0;
+          }
+        },
+        
+        getDistance: function (touch1, touch2) {
+          const dx = touch1.pageX - touch2.pageX;
+          const dy = touch1.pageY - touch2.pageY;
+          return Math.sqrt(dx * dx + dy * dy);
+        },
+        
+        remove: function () {
+          this.removeEventListeners();
+        }
+      });
 
-  remove: function () {
-    this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
-    this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
-  },
-
-  handleRotation: function (event) {
-  },
-
-  handleScale: function (event) {
-    if (this.isVisible) {
-      this.scaleFactor *=
-        1 + event.detail.spreadChange / event.detail.startSpread;
-
-      this.scaleFactor = Math.min(
-        Math.max(this.scaleFactor, this.data.minScale),
-        this.data.maxScale
-      );
-
-      this.el.object3D.scale.x = this.scaleFactor * this.initialScale.x;
-      this.el.object3D.scale.y = this.scaleFactor * this.initialScale.y;
-      this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z;
-    }
-  },
-});
-
-// Component that detects and emits events for touch gestures
-
-AFRAME.registerComponent("gesture-detector", {
-  schema: {
-    element: { default: "" }
-  },
-
-  init: function() {
-  },
-
-  remove: function() {
-  },
-
-  emitGestureEvent(event) {
-  },
-
-  getTouchState: function(event) {
-  },
-
-  getEventPrefix(touchCount) {
-  }
-});
+      document.querySelector('a-scene').setAttribute('gesture-controls', '');
   </script>
   </head>
   <body style='margin : 0px; overflow: hidden;'>
@@ -261,8 +289,7 @@ rotation="0 0 0"
 position ="0 0 -15"
 visible="true"
 reflections="type: static"
-gesture-handler
-gesture-detector
+
 no-cull>
 <a-entity id="led-model" gltf-model="#led-glb"></a-entity>
 <a-entity id="bend-model" gltf-model="#bend-glb"></a-entity>
