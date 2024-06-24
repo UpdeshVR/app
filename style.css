@@ -171,7 +171,8 @@
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  bottom: 20px;
+  /* bottom: 20px; */
+  bottom: 3dvh;
   left: 0;
   right: 0;
   margin: auto;
@@ -191,15 +192,19 @@
 .carousel-track {
   display: flex;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(33.33%);
+  /* transform: translateX(33.33%); */
+  transform: translateX(37.33%);
   margin: 0;
   padding: 0;
 }
 
 .carousel-slide {
-  min-width: 33.333%;
-  flex: 0 0 33.333%;
-  height: 16vh;
+  /* min-width: 33.333%;
+  flex: 0 0 33.333%; */
+  min-width: 25%;
+  flex: 0 0 25%;
+  /* height: 16vh; */
+  height: 11vh;
   transition: transform 0.3s ease-in-out;
   text-align: center;
   list-style: none;
@@ -210,8 +215,10 @@
 }
 
 .filter {
-  width: 10vh;
-  height: 10vh;
+  /* width: 10vh;
+  height: 10vh; */
+  width: 7vh;
+  height: 7vh;
   border-radius: 50%;
   transition: transform 0.3s ease-in-out;
   background-size: 100%;
@@ -231,24 +238,27 @@
 .carousel-slide p {
   margin: 10px 0 0;
   position: absolute;
-  bottom: -20px;
+  bottom: -3dvh;
   width: 100%;
-  font-size: 12px;
-  color: #000;
+  font-size: 1.5vh;
+  color: #fff;
+  text-shadow: 0px 4px 4px 0px #00000040;
+  text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   display: none;
 }
 
 .activeBtn {
-  width: 16vh;
+  /* width: 16vh; */
+  width: 11vh;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
   height: 100%;
   border-radius: 50%;
-  border: 5px solid black;
+  border: 6px solid #fff;
   z-index: 2;
 }
 

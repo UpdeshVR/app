@@ -9,6 +9,10 @@ const adjustFridgeHeight = () => {
 
 adjustFridgeHeight()
 
+document.addEventListener('load', () => {
+    adjustFridgeHeight()
+})
+
 document.addEventListener('resize', () => {
     adjustFridgeHeight()
 })
