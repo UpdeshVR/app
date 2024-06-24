@@ -3,7 +3,7 @@ const nextButtonComponent = () => ({
     const animationList = ['bend', 'led', '2x', 'ice', 'dualfan', 'modes', 'toughglass', 'shine']
 
     let idx = 0  // Start with the 2nd animation because the model starts with idle animation
-
+    let isPlay = 0 //bool for animation
     const model = document.getElementById('model')
     const ledmodel = document.getElementById('led-model')
     const bendmodel = document.getElementById('bend-model')
@@ -13,6 +13,8 @@ const nextButtonComponent = () => ({
     const toughglassmodel = document.getElementById('toughglass-model')
     const shinemodel = document.getElementById('shine-model')
     const place = document.getElementById('btn3')
+    const audio = document.getElementById('audio')
+
     const carouselcontainer = document.querySelector('.carousel-container')
 
     const instructioninfo = document.querySelector('.instruction-info')
@@ -57,9 +59,10 @@ const nextButtonComponent = () => ({
         place.style.display = 'none'
         arScreen.style.pointerEvents = 'none'
         arScreen.removeEventListener('click', handleArScreenClick)
-
+        audio.play()
         nextbutton.style.display = 'block'
         setTimeout(() => {
+          isPlay = 1
           carouselcontainer.style.visibility = 'visible'
           carouselcontainer.style.opacity = '1'
           carouselcontainer.style.pointerEvents = 'auto'
@@ -128,6 +131,7 @@ const nextButtonComponent = () => ({
 
       // idx = index
       nextAnimation(index)
+      isPlay = 1
       if (index !== -1) {
         handleFilterClick(index)
       }
@@ -203,6 +207,7 @@ const nextButtonComponent = () => ({
       icemodel.removeAttribute('animation-mixer')
       modesmodel.removeAttribute('animation-mixer')
       toughglassmodel.removeAttribute('animation-mixer')
+      shinemodel.removeAttribute('animation-mixer')
       // ui anim remove
       uimodel.removeAttribute('animation-mixer')
       bendui.removeAttribute('animation-mixer')
@@ -382,9 +387,236 @@ const nextButtonComponent = () => ({
       }
     }
     nextButton.addEventListener('click', () => {
-      model.setAttribute('animation-mixer', {
-        timeScale: 0,
-      })
+      if (isPlay === 1) {
+        switch (idx) {
+          case 0:
+            // bend animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            bendmodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            bendui.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+          case 1:
+            // LED animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            ledmodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            ledui.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 2:
+            // 2X animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            uimodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 3:
+            // ice Animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            icemodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            iceui.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+          case 4:
+            // fan animation
+
+            vid.pause()
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            fanmodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            dualfanui.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 5:
+            // modes
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            modesmodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            modeui.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 6:
+            // tough Glass animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            toughglassmodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            toughglassui.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+
+          case 7:
+            // tough Glass animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            shinemodel.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            shineui.setAttribute('animation-mixer', {
+              timeScale: 0,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+          default:
+            console.log(`Sorry, we are out of ${idx}.`)
+        }
+        isPlay = 0
+      }
+      else if (isPlay === 0) {
+        switch (idx) {
+          case 0:
+            // bend animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            bendmodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            bendui.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+          case 1:
+            // LED animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            ledmodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            ledui.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 2:
+            // 2X animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            uimodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 3:
+            // ice Animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            icemodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            iceui.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+          case 4:
+            // fan animation
+
+            vid.play()
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            fanmodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            dualfanui.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 5:
+            // modes
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            modesmodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            modeui.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+
+            console.log(`Play Animation${idx}`)
+            break
+          case 6:
+            // tough Glass animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            toughglassmodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            toughglassui.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+
+          case 7:
+            // tough Glass animation
+            model.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            shinemodel.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            shineui.setAttribute('animation-mixer', {
+              timeScale: 1,
+            })
+            console.log(`Play Animation${idx}`)
+            break
+          default:
+            console.log(`Sorry, we are out of ${idx}.`)
+        }
+        isPlay = 1
+      }
     })
     // nextButton.onclick = nextAnimation  // Switch to the next animation when the button is pressed.
   },
