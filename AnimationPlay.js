@@ -3,7 +3,7 @@ const nextButtonComponent = () => ({
       const animationList = ['bend', 'led', '2x', 'ice', 'dualfan', 'modes', 'toughglass', 'shine']
   
       let idx = 0  // Start with the 2nd animation because the model starts with idle animation
-  
+      let isPlay = 0 //bool for animation
       const model = document.getElementById('model')
       const ledmodel = document.getElementById('led-model')
       const bendmodel = document.getElementById('bend-model')
@@ -60,6 +60,7 @@ const nextButtonComponent = () => ({
   
           nextbutton.style.display = 'block'
           setTimeout(() => {
+            isPlay = 1
             carouselcontainer.style.visibility = 'visible'
             carouselcontainer.style.opacity = '1'
             carouselcontainer.style.pointerEvents = 'auto'
@@ -128,6 +129,7 @@ const nextButtonComponent = () => ({
   
         // idx = index
         nextAnimation(index)
+        isPlay = 1
         if (index !== -1) {
           handleFilterClick(index)
         }
@@ -382,9 +384,18 @@ const nextButtonComponent = () => ({
         }
       }
       nextButton.addEventListener('click',()=>{
-        model.setAttribute('animation-mixer',{
-          timeScale: 0,
-        })
+        if(isPlay === 1){
+          model.setAttribute('animation-mixer',{
+            timeScale: 0,
+          })
+          isPlay = 0
+        }
+        else if(isPlay === 0){
+          model.setAttribute('animation-mixer',{
+            timeScale: 1,
+          })
+          isPlay = 1
+        }
       })
       // nextButton.onclick = nextAnimation  // Switch to the next animation when the button is pressed.
     },
