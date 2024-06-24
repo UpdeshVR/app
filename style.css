@@ -102,7 +102,7 @@
   bottom: 0;
   right: 0;
   z-index: 2;
-  height: 63vh;
+  max-height: 60vh;
   width: 60%;
   object-fit: contain;
 }
@@ -287,6 +287,7 @@
 #shine {
   background-image: url('./assets/images/shine.png');
 }
+
 .top-info {
   position: absolute;
   top: 0;
