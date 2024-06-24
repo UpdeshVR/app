@@ -381,6 +381,11 @@ const nextButtonComponent = () => ({
             console.log(`Sorry, we are out of ${idx}.`)
         }
       }
+      nextButton.addEventListener('click',()=>{
+        model.setAttribute('animation-mixer',{
+          timeScale: 0,
+        })
+      })
       // nextButton.onclick = nextAnimation  // Switch to the next animation when the button is pressed.
     },
     
