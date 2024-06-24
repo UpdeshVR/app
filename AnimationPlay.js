@@ -385,15 +385,233 @@ const nextButtonComponent = () => ({
       }
       nextButton.addEventListener('click',()=>{
         if(isPlay === 1){
-          model.setAttribute('animation-mixer',{
-            timeScale: 0,
-          })
+          switch (idx) {
+            case 0:
+            // bend animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              bendmodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              bendui.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+            case 1:
+            // LED animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              ledmodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              ledui.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 2:
+            // 2X animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              uimodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 3:
+            // ice Animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              icemodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              iceui.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+            case 4:
+            // fan animation
+          
+            vid.pause()
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              fanmodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              dualfanui.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 5:
+            // modes
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              modesmodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              modeui.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 6:
+            // tough Glass animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              toughglassmodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              toughglassui.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+          
+            case 7:
+            // tough Glass animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              shinemodel.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              shineui.setAttribute('animation-mixer', {
+                timeScale: 0,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+            default:
+              console.log(`Sorry, we are out of ${idx}.`)
+          }
           isPlay = 0
         }
         else if(isPlay === 0){
-          model.setAttribute('animation-mixer',{
-            timeScale: 1,
-          })
+          switch (idx) {
+            case 0:
+            // bend animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              bendmodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              bendui.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+            case 1:
+            // LED animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              ledmodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              ledui.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 2:
+            // 2X animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              uimodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 3:
+            // ice Animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              icemodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              iceui.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+            case 4:
+            // fan animation
+          
+              vid.play()
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              fanmodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              dualfanui.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 5:
+            // modes
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              modesmodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              modeui.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+          
+              console.log(`Play Animation${idx}`)
+              break
+            case 6:
+            // tough Glass animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              toughglassmodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              toughglassui.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+          
+            case 7:
+            // tough Glass animation
+              model.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              shinemodel.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              shineui.setAttribute('animation-mixer', {
+                timeScale: 1,
+              })
+              console.log(`Play Animation${idx}`)
+              break
+            default:
+              console.log(`Sorry, we are out of ${idx}.`)
+          }
           isPlay = 1
         }
       })
