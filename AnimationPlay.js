@@ -1,18 +1,20 @@
 const nextButtonComponent = () => ({
     init() {
-      const animationList = ['bend', 'led', '2x', 'ice', 'dualfan', 'modes', 'toughglass', 'shine']
-  
-      let idx = 0  // Start with the 2nd animation because the model starts with idle animation
-      let isPlay = 0 //bool for animation
-      const model = document.getElementById('model')
-      const ledmodel = document.getElementById('led-model')
-      const bendmodel = document.getElementById('bend-model')
-      const icemodel = document.getElementById('ice-model')
-      const fanmodel = document.getElementById('fan-model')
-      const modesmodel = document.getElementById('modes-model')
-      const toughglassmodel = document.getElementById('toughglass-model')
-      const shinemodel = document.getElementById('shine-model')
+    const animationList = ['bend', 'led', '2x', 'ice', 'dualfan', 'modes', 'toughglass', 'shine']
+
+    let idx = 0  // Start with the 2nd animation because the model starts with idle animation
+    let isPlay = 0 //bool for animation
+    const model = document.getElementById('model')
+    const ledmodel = document.getElementById('led-model')
+    const bendmodel = document.getElementById('bend-model')
+    const icemodel = document.getElementById('ice-model')
+    const fanmodel = document.getElementById('fan-model')
+    const modesmodel = document.getElementById('modes-model')
+    const toughglassmodel = document.getElementById('toughglass-model')
+    const shinemodel = document.getElementById('shine-model')
     const place = document.getElementById('btn3')
+    const audio = document.getElementById('audio')
+
     const carouselcontainer = document.querySelector('.carousel-container')
 
     const instructioninfo = document.querySelector('.instruction-info')
@@ -57,7 +59,7 @@ const nextButtonComponent = () => ({
           place.style.display = 'none'
           arScreen.style.pointerEvents = 'none'
           arScreen.removeEventListener('click', handleArScreenClick)
-  
+          audio.play()
           nextbutton.style.display = 'block'
           setTimeout(() => {
             isPlay = 1
@@ -205,6 +207,7 @@ const nextButtonComponent = () => ({
         icemodel.removeAttribute('animation-mixer')
         modesmodel.removeAttribute('animation-mixer')
         toughglassmodel.removeAttribute('animation-mixer')
+        shinemodel.removeAttribute('animation-mixer')
         // ui anim remove
         uimodel.removeAttribute('animation-mixer')
         bendui.removeAttribute('animation-mixer')
