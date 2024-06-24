@@ -2,7 +2,7 @@
 # Getting started
 - Clone the repository
 ```
-git clone https://github.com/updesh126/app.git
+git clone https://github.com/UpdeshVR/app.git
 ```
 - Install dependencies
 ```
