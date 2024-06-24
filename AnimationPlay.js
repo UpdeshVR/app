@@ -71,21 +71,18 @@ const nextButtonComponent = () => ({
           carouselcontainer.style.pointerEvents = 'auto'
           nextButton.style.display = "flex"
 
-          timerId = setTimeout(() => {
+          nextButton.style.visibility = "visible";
+          nextButton.style.opacity = "1";
 
-            nextButton.style.visibility = "visible";
-            nextButton.style.opacity = "1";
-
-            setTimeout(() => {
-              nextButton.style.opacity = "0";
-              // nextButton.style.visibility = "hidden";
-              // nextButton.style.backgroundImage = "unset";
-              // nextButton.style.borderRadius = "50%";
-              // nextButton.style.backgroundRepeat = "no-repeat";
-              // nextButton.style.backgroundSize = "100%";
-              // nextButton.style.backgroundPosition = "center";
-            }, 2000)
-          }, 1000)
+          setTimeout(() => {
+            nextButton.style.opacity = "0";
+            // nextButton.style.visibility = "hidden";
+            // nextButton.style.backgroundImage = "unset";
+            // nextButton.style.borderRadius = "50%";
+            // nextButton.style.backgroundRepeat = "no-repeat";
+            // nextButton.style.backgroundSize = "100%";
+            // nextButton.style.backgroundPosition = "center";
+          }, 2000)
 
 
           // reduceBending.style.display = 'block'

@@ -172,7 +172,7 @@
   visibility: hidden;
   opacity: 0;
   /* bottom: 20px; */
-  bottom: 3dvh;
+  bottom: 4dvh;
   left: 0;
   right: 0;
   margin: auto;
@@ -241,7 +241,7 @@
 .carousel-slide p {
   margin: 10px 0 0;
   position: absolute;
-  bottom: -3dvh;
+  bottom: -3.6dvh;
   width: 100%;
   font-size: 1.5vh;
   color: #fff;
@@ -280,7 +280,7 @@
   color: #fff;
   z-index: 2;
   position: absolute;
-  bottom: -3dvh;
+  bottom: -3.6dvh;
   width: 100%;
   font-size: 1.5vh;
   text-shadow: 0px 4px 4px 0px #00000040;
