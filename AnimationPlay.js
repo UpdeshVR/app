@@ -4,6 +4,7 @@ const nextButtonComponent = () => ({
 
     let idx = 0  // Start with the 2nd animation because the model starts with idle animation
     let isPlay = 0 //bool for animation
+    let timerId
     const model = document.getElementById('model')
     const ledmodel = document.getElementById('led-model')
     const bendmodel = document.getElementById('bend-model')
@@ -14,6 +15,8 @@ const nextButtonComponent = () => ({
     const shinemodel = document.getElementById('shine-model')
     const place = document.getElementById('btn3')
     const audio = document.getElementById('audio')
+    const activeBtn = document.querySelector('.activeBtn')
+    const playText = activeBtn.querySelector('p')
 
     const carouselcontainer = document.querySelector('.carousel-container')
 
@@ -60,12 +63,31 @@ const nextButtonComponent = () => ({
         arScreen.style.pointerEvents = 'none'
         arScreen.removeEventListener('click', handleArScreenClick)
         audio.play()
-        nextbutton.style.display = 'block'
+
         setTimeout(() => {
           isPlay = 1
           carouselcontainer.style.visibility = 'visible'
           carouselcontainer.style.opacity = '1'
           carouselcontainer.style.pointerEvents = 'auto'
+          nextButton.style.display = "flex"
+
+          timerId = setTimeout(() => {
+
+            nextButton.style.visibility = "visible";
+            nextButton.style.opacity = "1";
+
+            setTimeout(() => {
+              nextButton.style.opacity = "0";
+              // nextButton.style.visibility = "hidden";
+              // nextButton.style.backgroundImage = "unset";
+              // nextButton.style.borderRadius = "50%";
+              // nextButton.style.backgroundRepeat = "no-repeat";
+              // nextButton.style.backgroundSize = "100%";
+              // nextButton.style.backgroundPosition = "center";
+            }, 2000)
+          }, 1000)
+
+
           // reduceBending.style.display = 'block'
           instructioninfo.style.display = 'none'
           model.setAttribute('animation-mixer', {
@@ -119,19 +141,28 @@ const nextButtonComponent = () => ({
     }
 
     const handleFilterClick = (index) => {
+      // const currentSlide = document.querySelector('.current-slide')
+      // const p = currentSlide.querySelector('p')
       currentIndex = index
+      // p.style.opacity = "1"
+      // playText.style.opacity = "0"
+      // nextButton.style.backgroundImage = "url('./assets/images/pause.png')";
+      // nextButton.style.opacity = "0"
       updateSlidePosition()
+
     }
 
     track.addEventListener('click', (event) => {
       const clickedSlide = event.target.closest('.carousel-slide')
       if (!clickedSlide) return
 
+
+
       const index = slides.indexOf(clickedSlide)
 
       // idx = index
       nextAnimation(index)
-      isPlay = 1
+
       if (index !== -1) {
         handleFilterClick(index)
       }
@@ -163,6 +194,7 @@ const nextButtonComponent = () => ({
           nextAnimation(currentIndex)
         }
       }
+
 
       updateSlidePosition()
     }
@@ -200,6 +232,8 @@ const nextButtonComponent = () => ({
     // nextButton.style.display = 'block'
 
     const nextAnimation = (index) => {
+      const currentSlide = document.querySelector('.current-slide')
+      const p = currentSlide.querySelector('p')
       model.removeAttribute('animation-mixer')
       ledmodel.removeAttribute('animation-mixer')
       bendmodel.removeAttribute('animation-mixer')
@@ -220,6 +254,11 @@ const nextButtonComponent = () => ({
 
       const obj = fanmodel.getObject3D('mesh')
       idx = index
+      isPlay = 1
+      p.style.opacity = "1"
+      playText.style.opacity = "0"
+      nextButton.style.backgroundImage = "url('./assets/images/pause.png')";
+      nextButton.style.opacity = "0"
 
       showInfo(idx)
 
@@ -386,8 +425,23 @@ const nextButtonComponent = () => ({
           console.log(`Sorry, we are out of ${idx}.`)
       }
     }
+
+
+
+
     nextButton.addEventListener('click', () => {
+
+
+
       if (isPlay === 1) {
+        const currentSlide = document.querySelector('.current-slide')
+        const p = currentSlide.querySelector('p')
+
+        nextButton.style.backgroundImage = "url('./assets/images/play.png')";
+        nextButton.style.opacity = "1"
+        p.style.opacity = "0"
+        playText.style.opacity = "1"
+
         switch (idx) {
           case 0:
             // bend animation
@@ -503,6 +557,16 @@ const nextButtonComponent = () => ({
         isPlay = 0
       }
       else if (isPlay === 0) {
+        const currentSlide = document.querySelector('.current-slide')
+        const p = currentSlide.querySelector('p')
+
+
+        nextButton.style.backgroundImage = "url('./assets/images/pause.png')";
+        nextButton.style.opacity = "0"
+        p.style.opacity = "1"
+        playText.style.opacity = "0"
+
+
         switch (idx) {
           case 0:
             // bend animation
