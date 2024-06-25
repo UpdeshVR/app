@@ -49,6 +49,10 @@
   padding: 5dvh;
 }
 
+.instructions-screen .step-2 {
+  display: none;
+}
+
 .instruction-prompt {
   text-align: center;
   display: flex;
