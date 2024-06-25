@@ -20,7 +20,6 @@ export function registerScaleGesture() {
       this.onTouchStart = this.onTouchStart.bind(this);
       this.onTouchMove = this.onTouchMove.bind(this);
       this.onTouchEnd = this.onTouchEnd.bind(this);
-      this.onWheel = this.onWheel.bind(this);
     },
 
     addEventListeners: function () {
@@ -28,7 +27,6 @@ export function registerScaleGesture() {
       sceneEl.addEventListener("touchstart", this.onTouchStart);
       sceneEl.addEventListener("touchmove", this.onTouchMove);
       sceneEl.addEventListener("touchend", this.onTouchEnd);
-      sceneEl.addEventListener("wheel", this.onWheel);
     },
 
     removeEventListeners: function () {
@@ -36,7 +34,6 @@ export function registerScaleGesture() {
       sceneEl.removeEventListener("touchstart", this.onTouchStart);
       sceneEl.removeEventListener("touchmove", this.onTouchMove);
       sceneEl.removeEventListener("touchend", this.onTouchEnd);
-      sceneEl.removeEventListener("wheel", this.onWheel);
     },
 
     onTouchStart: function (event) {
@@ -55,7 +52,7 @@ export function registerScaleGesture() {
           event.touches[0],
           event.touches[1]
         );
-        this.scaleModel(currentDistance / this.startDistance);
+        this.scaleModel(currentDistance);
       }
     },
 
@@ -65,16 +62,12 @@ export function registerScaleGesture() {
       }
     },
 
-    onWheel: function (event) {
-      const scaleFactor = 1 + event.deltaY * -0.001;
-      this.scaleModel(scaleFactor);
-    },
-
-    scaleModel: function (scaleFactor) {
+    scaleModel: function (currentDistance) {
+      const scaleFactor = currentDistance / this.startDistance;
       this.model.scale.set(
-        this.model.scale.x * scaleFactor,
-        this.model.scale.y * scaleFactor,
-        this.model.scale.z * scaleFactor
+        this.startScale.x * scaleFactor,
+        this.startScale.y * scaleFactor,
+        this.startScale.z * scaleFactor
       );
     },
 
