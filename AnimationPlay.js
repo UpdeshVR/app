@@ -108,6 +108,8 @@ const nextButtonComponent = () => ({
         // scene.emit('recenter')
       }
     })
+
+
     let currentIndex = 0
     place.addEventListener('click', () => {
 
