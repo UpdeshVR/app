@@ -16,14 +16,15 @@
   <script type="module">
 
 
-    import { responsiveImmersiveComponent } from './reflaction.js';
-    import { nextButtonComponent } from './AnimationPlay.js';
+    import { responsiveImmersiveComponent } from './scripts/reflaction.js';
+    import { nextButtonComponent } from './scripts/AnimationPlay.js';
     import { registerRotateGesture } from './helper/registerRotateGesture.js';
     import { registerScaleGesture } from './helper/registerScaleGesture.js';
+    import {instructionsComponent} from './scripts/instructions.js'
 
     // Register custom A-Frame components
     AFRAME.registerComponent('next-button', nextButtonComponent());
-
+    AFRAME.registerComponent('instructions',instructionsComponent())
     AFRAME.registerComponent('reflacrtion-component', responsiveImmersiveComponent);
     AFRAME.registerComponent('no-cull', {
       init() {
@@ -221,7 +222,7 @@
 
   <!-- <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" next-button  reflacrtion-component no-cull > -->
   <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
-    reflection="directionalLight:a-light#dirlight;" next-button reflacrtion-component>
+    reflection="directionalLight:a-light#dirlight;" instructions next-button reflacrtion-component>
 
     <!-- assets -->
     <a-assets>
@@ -329,7 +330,7 @@
     });
   </script> -->
 
-  <script src="./script.js"></script>
+  <script src="./scripts/script.js"></script>
 
 </body>
 
