@@ -15,8 +15,11 @@
   <!-- Include your JS files -->
   <script type="module">
 
+
     import { responsiveImmersiveComponent } from './reflaction.js';
     import { nextButtonComponent } from './AnimationPlay.js';
+    import { registerRotateGesture } from './helper/registerRotateGesture.js';
+    import { registerScaleGesture } from './helper/registerScaleGesture.js';
 
     // Register custom A-Frame components
     AFRAME.registerComponent('next-button', nextButtonComponent());
@@ -33,96 +36,100 @@
 
     });
 
-    AFRAME.registerComponent('gesture-controls', {
-      schema: {
-        enabled: { default: true }
-      },
 
-      init: function () {
-        this.modelEntity = document.querySelector('#model');
-        this.model = this.modelEntity.object3D;
+    registerRotateGesture();
+    registerScaleGesture();
 
-        this.startDistance = 0;
-        this.startScale = new THREE.Vector3();
-        this.initScale = new THREE.Vector3();
-        this.startRotation = new THREE.Vector3();
-        this.initRotation = new THREE.Vector3();
+    // AFRAME.registerComponent('gesture-controls', {
+    //   schema: {
+    //     enabled: { default: true }
+    //   },
 
-        this.bindMethods();
-        this.addEventListeners();
-      },
+    //   init: function () {
+    //     this.modelEntity = document.querySelector('#model');
+    //     this.model = this.modelEntity.object3D;
 
-      bindMethods: function () {
-        this.onTouchStart = this.onTouchStart.bind(this);
-        this.onTouchMove = this.onTouchMove.bind(this);
-        this.onTouchEnd = this.onTouchEnd.bind(this);
-      },
+    //     this.startDistance = 0;
+    //     this.startScale = new THREE.Vector3();
+    //     this.initScale = new THREE.Vector3();
+    //     this.startRotation = new THREE.Vector3();
+    //     this.initRotation = new THREE.Vector3();
 
-      addEventListeners: function () {
-        const sceneEl = this.el.sceneEl;
-        sceneEl.addEventListener('touchstart', this.onTouchStart);
-        sceneEl.addEventListener('touchmove', this.onTouchMove);
-        sceneEl.addEventListener('touchend', this.onTouchEnd);
-      },
+    //     this.bindMethods();
+    //     this.addEventListeners();
+    //   },
 
-      removeEventListeners: function () {
-        const sceneEl = this.el.sceneEl;
-        sceneEl.removeEventListener('touchstart', this.onTouchStart);
-        sceneEl.removeEventListener('touchmove', this.onTouchMove);
-        sceneEl.removeEventListener('touchend', this.onTouchEnd);
-      },
+    //   bindMethods: function () {
+    //     this.onTouchStart = this.onTouchStart.bind(this);
+    //     this.onTouchMove = this.onTouchMove.bind(this);
+    //     this.onTouchEnd = this.onTouchEnd.bind(this);
+    //   },
 
-      onTouchStart: function (event) {
-        console.log("touched")
-        if (event.touches.length === 1) {
-          this.startRotation.set(event.touches[0].pageX, event.touches[0].pageY, 0);
-          this.initRotation.copy(this.model.rotation);
-        }
+    //   addEventListeners: function () {
+    //     const sceneEl = this.el.sceneEl;
+    //     sceneEl.addEventListener('touchstart', this.onTouchStart);
+    //     sceneEl.addEventListener('touchmove', this.onTouchMove);
+    //     sceneEl.addEventListener('touchend', this.onTouchEnd);
+    //   },
 
-        if (event.touches.length === 2) {
-          this.startDistance = this.getDistance(event.touches[0], event.touches[1]);
-          this.startScale.copy(this.model.scale);
-        }
-      },
+    //   removeEventListeners: function () {
+    //     const sceneEl = this.el.sceneEl;
+    //     sceneEl.removeEventListener('touchstart', this.onTouchStart);
+    //     sceneEl.removeEventListener('touchmove', this.onTouchMove);
+    //     sceneEl.removeEventListener('touchend', this.onTouchEnd);
+    //   },
 
-      onTouchMove: function (event) {
-        if (event.touches.length === 1) {
-          const deltaX = event.touches[0].pageX - this.startRotation.x;
-          const deltaY = event.touches[0].pageY - this.startRotation.y;
+    //   onTouchStart: function (event) {
+    //     console.log("touched")
+    //     if (event.touches.length === 1) {
+    //       this.startRotation.set(event.touches[0].pageX, event.touches[0].pageY, 0);
+    //       this.initRotation.copy(this.model.rotation);
+    //     }
 
-          this.model.rotation.y = this.initRotation.y + deltaX * 0.01;
-          // this.model.rotation.x = this.initRotation.x + deltaY * 0.01;
-        }
+    //     if (event.touches.length === 2) {
+    //       this.startDistance = this.getDistance(event.touches[0], event.touches[1]);
+    //       this.startScale.copy(this.model.scale);
+    //     }
+    //   },
 
-        if (event.touches.length === 2) {
-          const currentDistance = this.getDistance(event.touches[0], event.touches[1]);
-          const scaleFactor = currentDistance / this.startDistance;
-          this.model.scale.set(
-            this.startScale.x * scaleFactor,
-            this.startScale.y * scaleFactor,
-            this.startScale.z * scaleFactor
-          );
-        }
-      },
+    //   onTouchMove: function (event) {
+    //     if (event.touches.length === 1) {
+    //       const deltaX = event.touches[0].pageX - this.startRotation.x;
+    //       const deltaY = event.touches[0].pageY - this.startRotation.y;
 
-      onTouchEnd: function (event) {
-        if (event.touches.length === 0) {
-          this.startDistance = 0;
-        }
-      },
+    //       this.model.rotation.y = this.initRotation.y + deltaX * 0.01;
+    //       // this.model.rotation.x = this.initRotation.x + deltaY * 0.01;
+    //     }
 
-      getDistance: function (touch1, touch2) {
-        const dx = touch1.pageX - touch2.pageX;
-        const dy = touch1.pageY - touch2.pageY;
-        return Math.sqrt(dx * dx + dy * dy);
-      },
+    //     if (event.touches.length === 2) {
+    //       const currentDistance = this.getDistance(event.touches[0], event.touches[1]);
+    //       const scaleFactor = currentDistance / this.startDistance;
+    //       this.model.scale.set(
+    //         this.startScale.x * scaleFactor,
+    //         this.startScale.y * scaleFactor,
+    //         this.startScale.z * scaleFactor
+    //       );
+    //     }
+    //   },
 
-      remove: function () {
-        this.removeEventListeners();
-      }
-    });
+    //   onTouchEnd: function (event) {
+    //     if (event.touches.length === 0) {
+    //       this.startDistance = 0;
+    //     }
+    //   },
 
-    document.querySelector('a-scene').setAttribute('gesture-controls', '');
+    //   getDistance: function (touch1, touch2) {
+    //     const dx = touch1.pageX - touch2.pageX;
+    //     const dy = touch1.pageY - touch2.pageY;
+    //     return Math.sqrt(dx * dx + dy * dy);
+    //   },
+
+    //   remove: function () {
+    //     this.removeEventListeners();
+    //   }
+    // });
+
+    // document.querySelector('a-scene').setAttribute('gesture-controls', '');
   </script>
 </head>
 
