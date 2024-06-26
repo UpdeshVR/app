@@ -27,6 +27,8 @@
 
 .start-screen {
   display: block;
+  pointer-events: auto;
+
 }
 
 .ar-screen {
