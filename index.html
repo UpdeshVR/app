@@ -20,11 +20,11 @@
     import { nextButtonComponent } from './scripts/AnimationPlay.js';
     import { registerRotateGesture } from './helper/registerRotateGesture.js';
     import { registerScaleGesture } from './helper/registerScaleGesture.js';
-    import {instructionsComponent} from './scripts/instructions.js'
+    import { instructionsComponent } from './scripts/instructions.js'
 
     // Register custom A-Frame components
     AFRAME.registerComponent('next-button', nextButtonComponent());
-    AFRAME.registerComponent('instructions',instructionsComponent())
+    AFRAME.registerComponent('instructions', instructionsComponent())
     AFRAME.registerComponent('reflacrtion-component', responsiveImmersiveComponent);
     AFRAME.registerComponent('no-cull', {
       init() {
@@ -149,7 +149,10 @@
         <p>Bottom Mount Refrigerator</p>
       </div>
 
-      <img id="view-btn" src="./assets/images/view_in_ar_button.png" />
+      <div class="view-btns">
+        <img id="view-btn" src="./assets/images/view_in_ar_button.png" />
+        <img id="visualise-btn" src="./assets/images//visualise_products.png">
+      </div>
       <img id="fridge" src="./assets/images/fridge.png" alt="Fridge Image" />
 
       <div class="bottom-floor"></div>
