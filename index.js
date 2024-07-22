@@ -50,7 +50,6 @@ export const compat = {
 };
 
 export const activateAR = (props, listener) => {
-  promt.style.display = "block";
   const anchor = document.createElement("a");
   const href = setupHref(props);
   anchor.setAttribute("href", href);
@@ -94,7 +93,6 @@ const setupHref = (props) => {
       customBanner,
       customHeight,
       noScale,
-      stopAnimation, //new attribute
     } = props;
 
     href = `${iosSrc}#`;
@@ -123,9 +121,6 @@ const setupHref = (props) => {
     if (noScale != null) {
       href += `&allowsContentScaling=0`;
     }
-    if (stopAnimation) {
-      href += `&animation=none`; // Assuming 'animation' is the parameter to control the animation
-    }
   } else if (compat.IS_SCENEVIEWER_CANDIDATE) {
     const { src, title, fallbackUrl, link, noScale } = props;
 
@@ -150,7 +145,7 @@ const setupHref = (props) => {
   }
   return href;
 };
-// button.setAttribute("animation-name","Animation")
+
 export const setupButton = (button) => {
   // skip button if it was already initialized beforehand
   if (button.getAttribute("ar") != null) {
@@ -178,7 +173,6 @@ export const setupButton = (button) => {
       const customBanner = button.getAttribute("custom-banner");
       const customHeight = button.getAttribute("custom-height");
       const noScale = button.getAttribute("no-scale");
-      const stopAnimation = button.getAttribute("stop-animation"); // New attribute
 
       activateAR(
         {
@@ -191,7 +185,6 @@ export const setupButton = (button) => {
           customBanner,
           customHeight,
           noScale,
-          stopAnimation,
         },
         button
       );
@@ -199,7 +192,6 @@ export const setupButton = (button) => {
   } else if (compat.IS_SCENEVIEWER_CANDIDATE) {
     // system supports AR via scene viewer
     button.setAttribute("ar", "scene-viewer");
-
     button.dispatchEvent(
       new CustomEvent("initialized", { detail: "scene-viewer" })
     );
@@ -235,11 +227,12 @@ export const setupButton = (button) => {
     }
   }
 };
-const promt = document.querySelector("#prompt");
+
 // go through all ar-button tags on the page and initialize them
 const buttons = document.querySelectorAll("ar-button");
 for (let i = 0; i < buttons.length; i++) {
   const button = buttons.item(i);
   setupButton(button);
 }
+
 // made my first commit
