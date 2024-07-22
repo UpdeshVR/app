@@ -38,8 +38,8 @@ export const compat = {
     const tempAnchor = document.createElement("a");
     return Boolean(
       tempAnchor.relList &&
-      tempAnchor.relList.supports &&
-      tempAnchor.relList.supports("ar")
+        tempAnchor.relList.supports &&
+        tempAnchor.relList.supports("ar")
     );
   })(),
 
@@ -54,7 +54,7 @@ export const activateAR = (props, listener) => {
   const anchor = document.createElement("a");
   const href = setupHref(props);
   anchor.setAttribute("href", href);
-  anchor.style.display = 'none';
+  anchor.style.display = "none";
 
   if (compat.IS_AR_QUICKLOOK_CANDIDATE) {
     // quick look needs a <img> child to go directly to AR view
@@ -64,7 +64,7 @@ export const activateAR = (props, listener) => {
 
   if (listener && compat.IS_AR_QUICKLOOK_CANDIDATE) {
     // anchor needs to be added to the body before you can add an event listener
-    document.body.append(anchor)
+    document.body.append(anchor);
 
     anchor.addEventListener(
       "message",
@@ -94,7 +94,7 @@ const setupHref = (props) => {
       customBanner,
       customHeight,
       noScale,
-      stopAnimation //new attribute
+      stopAnimation, //new attribute
     } = props;
 
     href = `${iosSrc}#`;
@@ -191,7 +191,7 @@ export const setupButton = (button) => {
           customBanner,
           customHeight,
           noScale,
-          stopAnimation
+          stopAnimation,
         },
         button
       );
@@ -235,11 +235,11 @@ export const setupButton = (button) => {
     }
   }
 };
-const promt = document.querySelector("#prompt")
+const promt = document.querySelector("#prompt");
 // go through all ar-button tags on the page and initialize them
 const buttons = document.querySelectorAll("ar-button");
 for (let i = 0; i < buttons.length; i++) {
   const button = buttons.item(i);
   setupButton(button);
 }
-// made my first commit 
+// made my first commit
