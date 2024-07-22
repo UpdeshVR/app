@@ -7,6 +7,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>   -->
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script type="module" src="https://unpkg.com/@leoncvlt/ar-button"></script>
 
     <!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> -->
 
@@ -58,11 +59,20 @@
         </div>
 
         <div class="view-btns">
-          <a href="https://makear.8thwall.app/haier-tap-to-place-visualiser/"
-            ><img
+          <ar-button
+            class="ar-button"
+            src="https://cdn.glitch.global/d46f73ae-be85-4ed3-adb8-c2ba33da721d/a2%201.glb?v=1719386361672"
+            ios-src="./assets/2.usdz"
+            link="https://www.nasa.gov/"
+            title="A 3D model of an astronaut"
+          >
+            <img
               id="visualise-btn"
               src="./assets/images//visualise_products.png"
-          /></a>
+            />
+          </ar-button>
+          <!-- <a href="https://makear.8thwall.app/haier-tap-to-place-visualiser/"
+            ></a> -->
 
           <img id="view-btn" src="./assets/images/view_in_ar_button.png" />
         </div>
