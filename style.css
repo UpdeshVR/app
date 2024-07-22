@@ -24,7 +24,10 @@
   height: 100dvh;
   width: 100%;
 }
-
+.ar-button{
+  pointer-events: auto;
+  z-index: 100;
+}
 .start-screen {
   display: block;
   pointer-events: auto;
