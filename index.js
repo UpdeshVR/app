@@ -192,9 +192,9 @@ export const setupButton = (button) => {
   } else if (compat.IS_SCENEVIEWER_CANDIDATE) {
     // system supports AR via scene viewer
     button.setAttribute("ar", "scene-viewer");
-    button.setAttribute("ar-placement", "wall");
-    button.setAttribute("touch-actiont", "pan-y");
-    button.setAttribute("camera-controls", "");
+    // button.setAttribute("ar-placement", "wall");
+    // button.setAttribute("touch-actiont", "pan-y");
+    // button.setAttribute("camera-controls", "");
 
     button.dispatchEvent(
       new CustomEvent("initialized", { detail: "scene-viewer" })
