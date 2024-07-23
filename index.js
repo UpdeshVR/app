@@ -193,6 +193,9 @@ export const setupButton = (button) => {
     // system supports AR via scene viewer
     button.setAttribute("ar", "scene-viewer");
     button.setAttribute("ar-placement", "wall");
+    button.setAttribute("touch-actiont", "pan-y");
+    button.setAttribute("camera-controls", "");
+
     button.dispatchEvent(
       new CustomEvent("initialized", { detail: "scene-viewer" })
     );
