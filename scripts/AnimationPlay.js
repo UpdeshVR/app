@@ -55,11 +55,21 @@ const nextButtonComponent = () => ({
 
     const track = document.querySelector(".carousel-track");
     const slides = Array.from(track.children);
+    function loadARScript() {
+      var script = document.createElement('script');
+      script.src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js";
+      script.onload = function() {
+        console.log("AR.js script loaded successfully.");
+      };
+      document.head.appendChild(script);
+    }
+
     function handleArScreenClick() {
       // scene.emit('recenter')
       console.log("cursor clicked");
     }
     viewbtn.addEventListener("click", () => {
+      loadARScript()
       startScreen.style.display = "none";
       arScreen.style.display = "block";
       if (hasPlacedModel !== true) {
