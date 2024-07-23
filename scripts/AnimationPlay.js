@@ -26,7 +26,7 @@ const nextButtonComponent = () => ({
     const audio = document.getElementById("audio");
     const activeBtn = document.querySelector(".activeBtn");
     const playText = activeBtn.querySelector("p");
-
+    const camera = document.getElementById("camera");
     const carouselcontainer = document.querySelector(".carousel-container");
 
     // const instructioninfo = document.querySelector('.instruction-info')
